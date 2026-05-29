@@ -710,12 +710,13 @@ namespace PauseInMultiplayer
                                 return true;
                     }
 
-					// we are on a dedicated server
-					return true;
-
                     //normal pause logic (terminates via false)
-                    foreach (string pauseTime in pauseTimeAll.Values)
+                    foreach (var (id, pauseTime) in pauseTimeAll)
+                    {
+                        if (id == Game1.player.UniqueMultiplayerID)
+                            continue;
                         if (pauseTime == "false") return false;
+                    }
 
                     return true;
                 }

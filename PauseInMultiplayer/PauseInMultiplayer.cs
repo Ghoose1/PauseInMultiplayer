@@ -710,6 +710,9 @@ namespace PauseInMultiplayer
                                 return true;
                     }
 
+					// we are on a dedicated server
+					return true;
+
                     //normal pause logic (terminates via false)
                     foreach (string pauseTime in pauseTimeAll.Values)
                         if (pauseTime == "false") return false;

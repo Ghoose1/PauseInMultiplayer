@@ -713,7 +713,7 @@ namespace PauseInMultiplayer
                     //normal pause logic (terminates via false)
                     foreach (var (id, pauseTime) in pauseTimeAll)
                     {
-                        if (id == Game1.player.UniqueMultiplayerID)
+                        if (id == Game1.player.UniqueMultiplayerID && Game1.IsMultiplayer)
                             continue;
                         if (pauseTime == "false") return false;
                     }
